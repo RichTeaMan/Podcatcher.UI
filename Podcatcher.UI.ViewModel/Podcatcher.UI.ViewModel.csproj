@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49F957DC-7B4C-4F33-AFE9-FFE75371F57E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Podcatcher.UI.ViewModel</RootNamespace>
+    <AssemblyName>Podcatcher.UI.ViewModel</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.Domain\Podcatcher.Domain.csproj">
+      <Project>{55431b6b-86dc-4821-b795-65908fe02b67}</Project>
+      <Name>Podcatcher.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.Downloader\Podcatcher.Downloader.csproj">
+      <Project>{7099385b-9787-4b95-b23d-ee83c1287a7a}</Project>
+      <Name>Podcatcher.Downloader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.FileSaver\Podcatcher.FileSaver.csproj">
+      <Project>{4362f986-ce48-430c-b7ab-e74b262c1c19}</Project>
+      <Name>Podcatcher.FileSaver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.Manager\Podcatcher.Manager.csproj">
+      <Project>{de8129c7-de6d-4998-be69-b30af3f8c6b5}</Project>
+      <Name>Podcatcher.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.RssReader\Podcatcher.RssReader.csproj">
+      <Project>{606fc136-6ce7-40aa-b3bc-2f2e7b09bbed}</Project>
+      <Name>Podcatcher.RssReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Podcatcher\Podcatcher.Search.Itunes\Podcatcher.Search.Itunes.csproj">
+      <Project>{5f2a8660-0d4a-4ce1-af83-3c7c5984d8c4}</Project>
+      <Name>Podcatcher.Search.Itunes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseNotify.cs" />
+    <Compile Include="ItunesSearch.cs" />
+    <Compile Include="ItunesSearchResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

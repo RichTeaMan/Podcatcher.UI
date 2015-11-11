@@ -1,0 +1,3 @@
+[submodule "Podcatcher"]
+	path = Podcatcher
+	url = https://github.com/RichTeaMan/Podcatcher.git
