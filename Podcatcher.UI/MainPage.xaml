@@ -51,7 +51,7 @@
                     <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding SearchResults}" Grid.Row="1">
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
+                                <StackPanel Margin="0,0,0,17" Tap="StackPanel_Tap"  Tag="{Binding Position}">
                                     <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                                     <TextBlock Text="{Binding Artist}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                     <Image Height="100" Width="100" Source="{Binding ImageUrl}"/>

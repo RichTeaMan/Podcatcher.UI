@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using Podcatcher.UI.Resources;
 using System.Threading.Tasks;
 using Podcatcher.UI.ViewModel;
+using System.Windows.Input;
 
 namespace Podcatcher.UI
 {
@@ -41,12 +42,32 @@ namespace Podcatcher.UI
 
         private async void searchBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if(e.Key == System.Windows.Input.Key.Enter)
+            if (e.Key == System.Windows.Input.Key.Enter)
             {
-                await Search.DoSearch(searchBox.Text);
+                //DisableUI(); // Make the "list" disabled, so the user can't "select and item" and cause an error, etc
+                IsEnabled = false;
+                try
+                {
+                    // Run your operation asynchronously
+                    await Search.DoSearch(searchBox.Text);
+                }
+                finally
+                {
+                    //EnableUI(); // Re-enable everything after the above completes
+                    IsEnabled = true;
+                }
+                
             }
         }
 
+        private void StackPanel_Tap(object sender, GestureEventArgs e)
+        {
+            var panel = (StackPanel)sender;
+            var position = (int)panel.Tag;
+            var searchResult = Search.SearchResults[position];
+            Navigation.GoTo(this, "/PodcastPage.xaml", searchResult);
+        }
+        
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
