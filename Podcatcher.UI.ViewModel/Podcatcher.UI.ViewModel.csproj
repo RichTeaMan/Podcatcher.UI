@@ -65,6 +65,7 @@
     <Compile Include="ItunesSearch.cs" />
     <Compile Include="ItunesSearchResult.cs" />
     <Compile Include="ModelFactory.cs" />
+    <Compile Include="PodcastTrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
