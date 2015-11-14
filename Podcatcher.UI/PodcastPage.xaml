@@ -27,6 +27,17 @@
             <Image Source="{Binding ImageUrl}" Height="100" Width="100" />
         </StackPanel>
 
+        <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Tracks}" Grid.Row="1">
+            <phone:LongListSelector.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,0,0,17" Tap="StackPanel_Tap" Tag="{Binding}">
+                        <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        <TextBlock Text="{Binding SubTitle}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
+
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
