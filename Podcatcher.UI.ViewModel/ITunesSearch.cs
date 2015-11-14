@@ -34,7 +34,14 @@ namespace Podcatcher.UI.ViewModel
         {
             var search = new Search.Itunes.ItunesSearchFactory();
             var results = await search.Search(searchTerms);
-            SearchResults = results.results.Select(r => new ItunesSearchResult(r)).ToArray();
+            var searchResults = results.results.Select(r => new ItunesSearchResult(r)).ToArray();
+            int i = 0;
+            foreach(var result in searchResults)
+            {
+                result.Position = i;
+                i++;
+            }
+            SearchResults = searchResults;
         }
 
     }

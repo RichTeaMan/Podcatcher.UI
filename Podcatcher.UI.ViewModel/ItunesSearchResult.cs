@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Podcatcher.UI.ViewModel
 {
-    public class ItunesSearchResult
+    public class ItunesSearchResult : BaseNotify
     {
         public string Name { get; set; }
         public string Artist { get; set; }
         public string ImageUrl { get; set; }
+        public int Position { get; set; }
 
         public ItunesSearchResult()
         {
