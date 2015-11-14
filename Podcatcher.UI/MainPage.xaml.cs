@@ -63,9 +63,7 @@ namespace Podcatcher.UI
         private void StackPanel_Tap(object sender, GestureEventArgs e)
         {
             var panel = (StackPanel)sender;
-            var position = (int)panel.Tag;
-            var searchResult = Search.SearchResults[position];
-            Navigation.GoTo(this, "/PodcastPage.xaml", searchResult);
+            Navigation.GoTo(this, "/PodcastPage.xaml", panel.Tag);
         }
         
         // Sample code for building a localized ApplicationBar
