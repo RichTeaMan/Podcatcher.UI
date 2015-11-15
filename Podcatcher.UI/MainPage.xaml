@@ -48,7 +48,7 @@
                     <TextBox Name="searchBox" KeyDown="searchBox_KeyDown" Grid.Row="0"></TextBox>
 
                     <!--Double line list with text wrapping-->
-                    <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding SearchResults}" Grid.Row="1">
+                    <phone:LongListSelector Name="SearchList" Margin="0,0,-12,0" ItemsSource="{Binding SearchResults}" Grid.Row="1">
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,0,0,17" Tap="StackPanel_Tap"  Tag="{Binding }">
@@ -64,14 +64,14 @@
                 
 
             <!--Pivot item two-->
-            <phone:PivotItem Header="second">
+            <phone:PivotItem Header="Downloads">
                 <!--Double line list no text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Name="DownloadList" Margin="0,0,-12,0" ItemsSource="{Binding Tracks}">
                     <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,0,0,17">
-                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                <TextBlock Text="{Binding PercentageDownloaded}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>

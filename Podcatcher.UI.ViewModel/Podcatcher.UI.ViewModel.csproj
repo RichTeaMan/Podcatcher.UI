@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseNotify.cs" />
+    <Compile Include="DownloadStore.cs" />
     <Compile Include="ItunesSearch.cs" />
     <Compile Include="ItunesSearchResult.cs" />
     <Compile Include="ModelFactory.cs" />

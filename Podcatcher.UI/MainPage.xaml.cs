@@ -18,6 +18,8 @@ namespace Podcatcher.UI
     {
         public ItunesSearch Search { get; set; }
 
+        public DownloadStore DownloadStore { get { return App.DownloadStore; } }
+
         // Constructor
         public MainPage()
         {
@@ -25,7 +27,8 @@ namespace Podcatcher.UI
             Search = new ItunesSearch();
 
             // Set the data context of the listbox control to the sample data
-            DataContext = Search;
+            SearchList.DataContext = Search;
+            DownloadList.DataContext = DownloadStore;
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -42,7 +45,7 @@ namespace Podcatcher.UI
 
         private async void searchBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 //DisableUI(); // Make the "list" disabled, so the user can't "select and item" and cause an error, etc
                 IsEnabled = false;

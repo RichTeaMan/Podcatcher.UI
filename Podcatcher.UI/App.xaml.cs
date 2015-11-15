@@ -8,11 +8,17 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Podcatcher.UI.Resources;
 using Podcatcher.UI.ViewModels;
+using Podcatcher.UI.ViewModel;
+using System.Threading.Tasks;
+using PCLStorage;
 
 namespace Podcatcher.UI
 {
     public partial class App : Application
     {
+        const string DOWNLOAD_STORE_NAME = "DownloadStore.json";
+        public static DownloadStore DownloadStore { get; private set; }
+
         private static MainViewModel viewModel = null;
 
         /// <summary>
@@ -73,6 +79,62 @@ namespace Podcatcher.UI
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+
+            BaseNotify.PrePropertyChanged += (sender, propertyName) =>
+            {
+
+                if (propertyName != null)
+                {
+                    if (Deployment.Current.Dispatcher.CheckAccess())
+                    {
+                        sender.InvokeHander(propertyName);
+                    }
+                    else
+                    {
+                        Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            sender.InvokeHander(propertyName);
+                        });
+                    }
+                }
+
+            };
+        }
+
+        private async Task<DownloadStore> BuildDownloadStore()
+        {
+            DownloadStore downloadStore;
+            var exists = await FileSystem.Current.LocalStorage.CheckExistsAsync(DOWNLOAD_STORE_NAME);
+            if (exists == ExistenceCheckResult.FileExists)
+            {
+                var factory = new ModelFactory();
+                var file = await FileSystem.Current.LocalStorage.GetFileAsync(DOWNLOAD_STORE_NAME);
+
+                var contents = await file.ReadAllTextAsync();
+                downloadStore = factory.Deserialise<DownloadStore>(contents);
+            }
+            else
+            {
+                downloadStore = new DownloadStore();
+            }
+            downloadStore.DownloadStoreChanged += async (sender, args) =>
+            {
+                await SaveDownloadStore();
+            };
+            
+            return downloadStore;
+        }
+
+        private async Task SaveDownloadStore()
+        {
+            var factory = new ModelFactory();
+            var json = factory.Serialise(DownloadStore);
+            var file = await FileSystem.Current.LocalStorage.CreateFileAsync(
+                DOWNLOAD_STORE_NAME,
+                CreationCollisionOption.ReplaceExisting);
+            await file.WriteAllTextAsync(json);
+
+            DownloadStore.BeginDownloads();
         }
 
         // Code to execute when a contract activation such as a file open or save picker returns 
@@ -85,6 +147,9 @@ namespace Podcatcher.UI
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var downloadStore = Task.Run(() => BuildDownloadStore()).Result;
+            DownloadStore = downloadStore;
+            DownloadStore.BeginDownloads();
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -109,6 +174,7 @@ namespace Podcatcher.UI
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
             // Ensure that required application state is persisted here.
+            DownloadStore.CancelDownloads();
         }
 
         // Code to execute if a navigation fails

@@ -37,7 +37,9 @@ namespace Podcatcher.UI
 
         private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            var panel = (StackPanel)sender;
+            var track = (PodcastTrack)panel.Tag;
+            App.DownloadStore.AddDownload(track);
         }
     }
 }
