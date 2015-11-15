@@ -99,6 +99,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation.cs" />
+    <Compile Include="PlayerPage.xaml.cs">
+      <DependentUpon>PlayerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PodcastPage.xaml.cs">
       <DependentUpon>PodcastPage.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </DesignData>
+    <Page Include="PlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PodcastPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +206,10 @@
     <ProjectReference Include="..\..\Podcatcher\Podcatcher.Search.Itunes\Podcatcher.Search.Itunes.csproj">
       <Project>{5f2a8660-0d4a-4ce1-af83-3c7c5984d8c4}</Project>
       <Name>Podcatcher.Search.Itunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Podcatcher.UI.AudioPlayback\Podcatcher.UI.AudioPlayback.csproj">
+      <Project>{2f7a2314-2c69-4320-a302-8f34213cecca}</Project>
+      <Name>Podcatcher.UI.AudioPlayback</Name>
     </ProjectReference>
     <ProjectReference Include="..\Podcatcher.UI.ViewModel\Podcatcher.UI.ViewModel.csproj">
       <Project>{49f957dc-7b4c-4f33-afe9-ffe75371f57e}</Project>

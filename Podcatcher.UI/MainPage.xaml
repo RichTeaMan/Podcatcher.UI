@@ -69,9 +69,9 @@
                 <phone:LongListSelector Name="DownloadList" Margin="0,0,-12,0" ItemsSource="{Binding Tracks}">
                     <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
+                                <StackPanel Margin="0,0,0,17" Tap="podcastTap">
                                     <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock Text="{Binding PercentageDownloaded}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <TextBlock Text="{Binding PercentageDownloaded}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcatcher.UI.ViewModel", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcatcher.UI.Universal", "Podcatcher.UI.Universal\Podcatcher.UI.Universal.csproj", "{370DE1D6-F8A6-4AC9-8578-CC49DBEF8951}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcatcher.UI.AudioPlayback", "Podcatcher.UI.AudioPlayback\Podcatcher.UI.AudioPlayback.csproj", "{2F7A2314-2C69-4320-A302-8F34213CECCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,22 @@ Global
 		{370DE1D6-F8A6-4AC9-8578-CC49DBEF8951}.Release|x86.ActiveCfg = Release|x86
 		{370DE1D6-F8A6-4AC9-8578-CC49DBEF8951}.Release|x86.Build.0 = Release|x86
 		{370DE1D6-F8A6-4AC9-8578-CC49DBEF8951}.Release|x86.Deploy.0 = Release|x86
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|ARM.Build.0 = Debug|ARM
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|x64.Build.0 = Debug|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|x86.ActiveCfg = Debug|x86
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Debug|x86.Build.0 = Debug|x86
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|ARM.ActiveCfg = Release|ARM
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|ARM.Build.0 = Release|ARM
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|x64.ActiveCfg = Release|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|x64.Build.0 = Release|Any CPU
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|x86.ActiveCfg = Release|x86
+		{2F7A2314-2C69-4320-A302-8F34213CECCA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

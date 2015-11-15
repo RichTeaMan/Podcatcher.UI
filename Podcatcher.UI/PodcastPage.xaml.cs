@@ -21,11 +21,6 @@ namespace Podcatcher.UI
             InitializeComponent();
         }
 
-        private async Task LoadRss()
-        {
-            
-        }
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);

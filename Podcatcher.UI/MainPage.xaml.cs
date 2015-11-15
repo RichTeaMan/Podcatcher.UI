@@ -68,7 +68,17 @@ namespace Podcatcher.UI
             var panel = (StackPanel)sender;
             Navigation.GoTo(this, "/PodcastPage.xaml", panel.Tag);
         }
-        
+
+        private void podcastTap(object sender, GestureEventArgs e)
+        {
+            var panel = (StackPanel)sender;
+            var track = (PodcastTrack)panel.DataContext;
+            if (track.DownloadComplete)
+            {
+                Navigation.GoTo(this, "/PlayerPage.xaml", track);
+            }
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
