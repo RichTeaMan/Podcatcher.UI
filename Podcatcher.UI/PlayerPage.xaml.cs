@@ -44,7 +44,11 @@ namespace Podcatcher.UI
                     "Podcast Artist",
                     "Podcast Album",
                     null);
-                BackgroundAudioPlayer.Instance.Play();
+                AudioPlayer.Play(audioTrack);
+                //BackgroundAudioPlayer.Instance.Track = audioTrack;
+                
+                //BackgroundAudioPlayer.Instance.Play();
+                Console.WriteLine(BackgroundAudioPlayer.Instance.Error);
             }
         }
 
@@ -89,7 +93,7 @@ namespace Podcatcher.UI
                 txtCurrentTrack.Text = BackgroundAudioPlayer.Instance.Track.Title +
                                  " by " +
                                  BackgroundAudioPlayer.Instance.Track.Artist;
-
+                
             }
             else
             {

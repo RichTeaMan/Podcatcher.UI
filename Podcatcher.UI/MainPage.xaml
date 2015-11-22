@@ -65,6 +65,8 @@
 
             <!--Pivot item two-->
             <phone:PivotItem Header="Downloads">
+                <StackPanel>
+                    <TextBlock Text="Test Audio" Tap="testAudioTap"></TextBlock>
                 <!--Double line list no text wrapping-->
                 <phone:LongListSelector Name="DownloadList" Margin="0,0,-12,0" ItemsSource="{Binding Tracks}">
                     <phone:LongListSelector.ItemTemplate>
@@ -76,6 +78,7 @@
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
+                </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>
 

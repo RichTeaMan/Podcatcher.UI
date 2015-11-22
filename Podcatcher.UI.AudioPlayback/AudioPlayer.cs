@@ -215,5 +215,12 @@ namespace Podcatcher.UI.AudioPlayback
 
         }
 
+        public static void Play(AudioTrack audioTrack)
+        {
+            BackgroundAudioPlayer.Instance.Track = audioTrack;
+
+            BackgroundAudioPlayer.Instance.Play();
+        }
+
     }
 }

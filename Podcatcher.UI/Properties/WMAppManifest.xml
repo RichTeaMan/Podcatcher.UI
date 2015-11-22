@@ -13,6 +13,9 @@
     </Capabilities>
     <Tasks>
       <DefaultTask Name ="_default" NavigationPage="MainPage.xaml" ActivationPolicy="Resume"/>
+      <ExtendedTask Name="BackgroundTask">
+        <BackgroundServiceAgent Name="AudioPlayerAgent" Type="Podcatcher.UI.AudioPlayback.AudioPlayer" Source="Podcatcher.UI.AudioPlayback" Specifier="AudioPlayerAgent"/>
+      </ExtendedTask>
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="Podcatcher.UIToken" TaskName="_default">

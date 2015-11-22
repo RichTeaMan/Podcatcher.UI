@@ -79,6 +79,19 @@ namespace Podcatcher.UI
             }
         }
 
+        private void testAudioTap(object sendedr, GestureEventArgs e)
+        {
+            var track = new PodcastTrack() {
+                Title = "LudvigVanBeethovenSymphony8",
+                DownloadComplete = true,
+                PercentageDownloaded = 100
+            };
+            if (track.DownloadComplete)
+            {
+                Navigation.GoTo(this, "/PlayerPage.xaml", track);
+            }
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
